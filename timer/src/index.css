@@ -19,16 +19,52 @@ code {
 .container {
   color:#c9ccea;
   display: flex;
-  justify-content: center;
   width: 400px;
   height: 600px;
   background: #010101;
-  padding-top: 130px;
+  align-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  
   
 }
 
 .timer {
-  color:white;
+  color: #fff;;
   font-size: 75px;
   font-weight: 200;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.row{
+  display: flex;
+  justify-content: space-between;
+}
+.button {
+  width: 80px;
+  height: 80px;
+  margin: 1px;
+  border-radius:  50px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttBorder {
+  width: 82px;
+  height: 82px;
+  border:solid;
+  border-color:#333333;
+  border-radius:  50px;
+  border-width: 1px;
+}
+.lapable{
+  display: flex;
+  width: 400px;
+  height: 200px;
+  color: rgb(134, 0, 0);
 }
