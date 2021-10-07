@@ -26,8 +26,6 @@ code {
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
-  
-  
 }
 
 .timer {
@@ -38,10 +36,12 @@ code {
   height: 200px;
   display: flex;
   justify-content: center;
+  
 }
 
-.row{
+.buttRow{
   display: flex;
+  flex-direction:row-reverse;
   justify-content: space-between;
 }
 .button {
@@ -52,19 +52,38 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .buttBorder {
-  width: 82px;
-  height: 82px;
+  width: 80px;
+  height: 80px;
   border:solid;
   border-color:#333333;
   border-radius:  50px;
   border-width: 1px;
+  background-color: #010101;
+  
 }
-.lapable{
+
+.lapTable{
   display: flex;
+  flex-direction:column;
   width: 400px;
   height: 200px;
-  color: rgb(134, 0, 0);
+  color: #FFF
+}
+
+.lapText {
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  font-size: 20px;
+}
+
+.lap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
