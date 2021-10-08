@@ -16,7 +16,7 @@ code {
     monospace;
 }
 
-.container {
+/* .container {
   color:#c9ccea;
   display: flex;
   width: 400px;
@@ -86,4 +86,4 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} */
