@@ -111,7 +111,7 @@ const styles = {
     
 
   },
-  timer: {
+  timerContainer: {
     color: '#FFFFFF',
     fontSize: 76,
     fontWeight: '200',
