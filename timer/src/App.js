@@ -1,31 +1,79 @@
-import React, {Component} from "react";
-import ReactDOM from 'react-dom';
-import moment from "moment"
+import React from "react";
 
 
-const DATA ={
-  timer: 234234,
-  laps: [234234, 234324234, 2432432234, 23423,]
-}
+const App = () => {
+  const [time, setTime] = React.useState(0);
+  const [timerOn, setTimerOn] = React.useState(false);
 
-function Timer({interval}) {
-  return <h3>{interval}</h3>
-}
-  export default class App extends Component {
-    render() {
-      return (
-        <div style={styles.container}>
-          <Timer/>
-        </div>
-      );
+  React.useEffect(() => {
+    let interval = null;
+
+    if (timerOn) {
+      interval = setInterval(() => {
+        setTime((prevTime) => prevTime + 10);
+      }, 10);
+    } else if (!timerOn) {
+      clearInterval(interval);
     }
+
+    return () => clearInterval(interval);
+  }, [timerOn]);
+
+  let lapTime = 6;
+
+  function LapTable ({lapTime}) {
+    lapTime = time;
+    return(
+      <div className="lapTable">
+        <h3>{'Lap 1 ' + lapTime}</h3>
+        <h3>{'Lap 2 ' + lapTime}</h3>
+        <h3>{'Lap 3 ' + lapTime}</h3>
+        <h3>{'Lap 4 ' + lapTime}</h3>
+        <h3>{'Lap 5 ' + lapTime}</h3>
+        
+      </div>
+    )
   }
 
-  const styles = {
-    container: {
-      flex: 1,
-      backgroundColor: '#020202',
-      alignItems: 'center',
+
+  return (
+  <div className="container">
       
-    },
-  };
+        <div className='timer'>
+          <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+          <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)},</span>
+          <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
+        </div>
+
+        <div className="buttons">
+          {!timerOn && (
+            <div className="buttBorder">
+              <button style={{color:'#50D167',backgroundColor: "#1B361F"}} onClick={() => setTimerOn(true)}>Start</button>
+            </div>
+            )}
+          
+          {timerOn && 
+          <div className="buttBorder">
+            <button style={{ color:'#E33935',backgroundColor: "#3C1715"}} onClick={() => setTimerOn(false)}>Stop</button>
+          </div>
+          }
+
+          {!timerOn && (
+            <div className="buttBorder">
+              <button onClick={() => setTime(0)}>Reset</button>
+            </div>
+          )}
+
+          {timerOn && (
+            <div className="buttBorder">
+              <button onClick={lapTable(time)}>Lap</button>
+            </div>
+          )}
+        </div>
+        
+            <LapTable/>
+    </div>
+  );
+};
+
+export default App;
