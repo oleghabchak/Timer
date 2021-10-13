@@ -19,18 +19,11 @@ const App = () => {
     return () => clearInterval(interval);
   }, [timerOn]);
 
-  let lapTime = 6;
-
-  function LapTable ({lapTime}) {
-    lapTime = time;
+  function LapTable ({lapTime, index }) {
+    lapTime = time.toString();
     return(
       <div className="lapTable">
-        <h3>{'Lap 1 ' + lapTime}</h3>
-        <h3>{'Lap 2 ' + lapTime}</h3>
-        <h3>{'Lap 3 ' + lapTime}</h3>
-        <h3>{'Lap 4 ' + lapTime}</h3>
-        <h3>{'Lap 5 ' + lapTime}</h3>
-        
+        <h3>Lap 1{index++} {lapTime} </h3>
       </div>
     )
   }
@@ -66,12 +59,12 @@ const App = () => {
 
           {timerOn && (
             <div className="buttBorder">
-              <button onClick={lapTable(time)}>Lap</button>
+              <button onClick={1}>Lap</button>
             </div>
           )}
         </div>
-        
-            <LapTable/>
+        <LapTable/>
+            
     </div>
   );
 };
