@@ -23,7 +23,7 @@ const App = () => {
     lapTime = time.toString();
     return(
       <div className="lapTable">
-        <h3>Lap 1{index++} {lapTime} </h3>
+        <h3>Lap 1{index} {lapTime} </h3>
       </div>
     )
   }
@@ -59,7 +59,7 @@ const App = () => {
 
           {timerOn && (
             <div className="buttBorder">
-              <button onClick={1}>Lap</button>
+              <button onClick={0}>Lap</button>
             </div>
           )}
         </div>
